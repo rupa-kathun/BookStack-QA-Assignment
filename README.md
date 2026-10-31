@@ -1,17 +1,20 @@
 # BookStack Demo – QA Testing Project
 
 ## Project Overview
+
 This project contains manual functional testing documentation and Selenium automation tests for the BookStack Demo application.
 
 **Application:** https://demo.bookstackapp.com/
 
 ## Project Objectives
+
 - Test key BookStack workflows such as login, book creation, editing, and search.
 - Cover positive, negative, boundary, and edge test scenarios.
 - Automate selected repeatable workflows using Selenium WebDriver.
 - Document test results, observations, and supporting evidence.
 
 ## Tools and Technologies
+
 - JavaScript
 - Selenium WebDriver
 - Mocha
@@ -26,8 +29,8 @@ This project contains manual functional testing documentation and Selenium autom
 BookStack-QA-Assignment/
 ├── Bug Report/
 │   ├── BUG-001.md
-│   ├── BUG-001-Language-Not-Saved.png.png
-│   └── BUG-001-Permission-Error.png.png
+│   ├── BUG-001-Language-Not-Saved.png
+│   └── BUG-001-Permission-Error.png
 ├── Evidence/
 │   ├── Automation-Test- part 1 Execution.png
 │   └── Automation-Test-part 2 Execution.png
@@ -84,7 +87,7 @@ See **Automation-Test-Cases.xlsx** for test objectives, preconditions, steps, ex
 npm install
 ```
 
-3. Create a local `.env` file in the project root with these keys:
+3. Create a local `.env` file in the project root:
 
 ```env
 BOOKSTACK_URL=https://demo.bookstackapp.com
@@ -106,9 +109,7 @@ The search test uses the book created by the preceding create-book test. Therefo
 
 ## Test Execution Summary
 
-In the recorded automation execution:
-
-**3 automation tests passed.**
+In the recorded automation execution, **3 automation tests passed**:
 
 - Valid login
 - Book creation
@@ -122,11 +123,36 @@ Manual test results and observations are documented in the functional test workb
 
 The BookStack Demo environment automatically resets its database and image storage periodically (approximately every 30 minutes, as observed during this assignment). Therefore, test data may disappear, and data-dependent tests may need to be executed again.
 
+## Bug Hunting and Exploratory Testing
+
+Exploratory testing was performed on the BookStack Demo application to identify unexpected behavior and usability issues.
+
+### Areas Explored
+
+- Book creation, editing, and deletion
+- Page creation, editing, copying, and deletion
+- Search functionality
+- Revision history
+- User account preferences
+- Permission handling
+
+### Observations
+
+- Book and page operations were tested with different inputs.
+- Empty descriptions and special characters were explored.
+- Delete confirmation and cancellation behavior were checked.
+- A permission error was observed when attempting to update the preferred language.
+- Some account and settings operations may be restricted in the demo environment.
+
+### Bug Investigation
+
+Observed behaviors were reviewed against expected functionality. Issues that could not be confirmed due to demo restrictions were documented as observations requiring further verification rather than confirmed defects.
+
 ## Bug Reporting
 
-Observed issues and supporting screenshots are documented in the `Bug Report/` folder.
+The observed preferred-language update issue and its supporting screenshots are documented in the `Bug Report/` folder.
 
-The preferred-language update attempt resulted in a permission error. However, the demo environment may restrict account updates, so this observation is marked as requiring verification rather than a confirmed application defect.
+The update attempt resulted in a permission error. However, the demo environment may restrict account updates, so this observation is marked as requiring verification rather than a confirmed application defect.
 
 ## Author
 
